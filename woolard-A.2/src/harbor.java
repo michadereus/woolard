@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class harbor extends masterfile{
-	int types;
 	//foreclosure forc = new foreclosure();
 	
 	public harbor(int type) {
 		//int x=5;//switches for making type object, counting, running aprop. class
 		switch(type) {
 		case 1:
-			System.out.println("dsadas");
+			//System.out.println("dsadas");
+			readForeclosure();
 			break;
 		case 2:
 			break;
@@ -23,20 +23,41 @@ public class harbor extends masterfile{
 			break;
 		}
 	}
-	public void read(String string, int type) {
+	//void temp
+	//t for tokens
+	public void readForeclosure() {
+		foreclosure forc = new foreclosure();
+		File doc = new File("foreclosure.csv");
 		try 
 		{
-			Scanner scan = new Scanner( new File(string) );
+			Scanner scan = new Scanner( doc );
 			String line = scan.nextLine();
-			String[] tokens;
+			String[] t;
 			while( scan.hasNextLine()) 
 			{
 				line = scan.nextLine();
-				line = line.replaceAll(",", " ");
-				tokens = line.split(" ");
-				populateForeclosure(tokens);
-				//date[len] = tokens[len];
-				//System.out.println(line.replaceAll(",", " "));
+				t = line.split(",");
+				/*date[len] = tokens[len];
+				for (int i=0; i<=15; i++) {
+					System.out.println(t[i]);
+				}*/
+				
+				forc.addDate(t[0]);
+				forc.addCounty(t[1]);
+				forc.addType(t[2]);
+				forc.addSale_date(t[3]);
+				forc.addpAddress(t[4]);
+				forc.addpCity(t[5]);
+				forc.addpState(t[6]);
+				forc.addpZip(t[7]);
+				forc.addValue(t[8]+","+t[9]);
+				forc.addLoan(t[10]);
+				forc.addName(t[11]);				
+				forc.addAddress(t[12]);
+				forc.addCity(t[13]);
+				forc.addState(t[14]);
+				forc.addZip(t[15]);
+				//System.out.println("dasda");
 			}
 			scan.close();			
 		}catch(FileNotFoundException e1) 
@@ -45,26 +66,7 @@ public class harbor extends masterfile{
 		}catch(@SuppressWarnings("hiding") IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	//void temp
-	//t for tokens
-	public void populateForeclosure(String[] t) {
-		System.out.println("pppenis");
-		forc.addDate(t[1]);
-		forc.addCounty(t[2]);
-		forc.addLoan(t[10]);
-		forc.addName(t[11]);
-		forc.addpAddress(t[12]);
-		forc.addpCity(t[13]);
-		forc.addpState(t[7]);
-		forc.addpZip(t[8]);
-		forc.addSale_date(t[4]);
-		forc.addState(t[14]);
-		forc.addType(t[3]);
-		forc.addValue(t[9]);
-		forc.addZip(t[15]);
-		System.out.println("asdasaeee");
+
 	}
 	
 	public void probates() {

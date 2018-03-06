@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class foreclosure {
-	public ArrayList<String> date, county, type, sale_date, pAddress, pCity, pState, value, loan, name, state;
-	public ArrayList<Integer> pZip, zip;
-	private int len;
+	ArrayList<String> city = new ArrayList<String>(); ArrayList<String> address = new ArrayList<String>(); ArrayList<String> date = new ArrayList<String>(); ArrayList<String> county= new ArrayList<String>() ; ArrayList<String> type= new ArrayList<String>(); ArrayList<String> sale_date= new ArrayList<String>(); ArrayList<String> pAddress= new ArrayList<String>(); ArrayList<String> pCity= new ArrayList<String>(); ArrayList<String> pState= new ArrayList<String>(); ArrayList<String> value= new ArrayList<String>(); ArrayList<String> loan= new ArrayList<String>(); ArrayList<String> name= new ArrayList<String>();ArrayList<String> state= new ArrayList<String>();
+	ArrayList<String> pZip= new ArrayList<String>(); ArrayList<String> zip= new ArrayList<String>();
+	int len;
 	
 	public foreclosure() {
 		//addName(forclose);
@@ -97,22 +97,20 @@ public class foreclosure {
 		this.state.add(st);
 	}
 
-	public int getpZip(int row) {
+	public String getpZip(int row) {
 		return pZip.get(row);
 	}
 
 	public void addpZip(String z) {
-		int zip = Integer.parseInt(z);
-		this.pZip.add(zip);
+		this.pZip.add(z);
 	}
 
-	public int getZip(int row) {
+	public String getZip(int row) {
 		return zip.get(row);
 	}
 
 	public void addZip(String z) {
-		int zip = Integer.parseInt(z);
-		this.zip.add(zip);
+		this.zip.add(z);
 	}
 
 	public int getLen() {
@@ -121,6 +119,18 @@ public class foreclosure {
 
 	public void setLen(int len) {
 		this.len = name.size();
+	}
+	public void addAddress(String string) {
+		this.address.add(string);
+	}
+	public String getAddress(int row) {
+		return address.get(row);
+	}
+	public void addCity(String cit) {
+		this.city.add(cit);
+	}
+	public String getCity(int row) {
+		return city.get(row);
 	}
 	
 }
