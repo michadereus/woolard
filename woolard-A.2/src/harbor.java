@@ -7,14 +7,13 @@ import java.util.Scanner;
 
 public class harbor extends masterfile{
 	int types;
-	foreclosure foreclose = new foreclosure();
+	//foreclosure forc = new foreclosure();
 	
 	public harbor(int type) {
 		//int x=5;//switches for making type object, counting, running aprop. class
 		switch(type) {
 		case 1:
 			System.out.println("dsadas");
-			read("foreclosure.csv", type);
 			break;
 		case 2:
 			break;
@@ -25,23 +24,17 @@ public class harbor extends masterfile{
 		}
 	}
 	public void read(String string, int type) {
-		
 		try 
 		{
 			Scanner scan = new Scanner( new File(string) );
 			String line = scan.nextLine();
+			String[] tokens;
 			while( scan.hasNextLine()) 
 			{
 				line = scan.nextLine();
-				String[] tokens = line.split(",");
-				switch(type) {
-				case 1:
-					popForeclosure(tokens, foreclose);
-					break;
-				case 2:
-					break;
-				}
-				//line = line.replaceAll(",", " ");
+				line = line.replaceAll(",", " ");
+				tokens = line.split(" ");
+				populateForeclosure(tokens);
 				//date[len] = tokens[len];
 				//System.out.println(line.replaceAll(",", " "));
 			}
@@ -56,7 +49,8 @@ public class harbor extends masterfile{
 	
 	//void temp
 	//t for tokens
-	public void popForeclosure(String[] t, foreclosure forc) {
+	public void populateForeclosure(String[] t) {
+		System.out.println("pppenis");
 		forc.addDate(t[1]);
 		forc.addCounty(t[2]);
 		forc.addLoan(t[10]);
@@ -70,6 +64,7 @@ public class harbor extends masterfile{
 		forc.addType(t[3]);
 		forc.addValue(t[9]);
 		forc.addZip(t[15]);
+		System.out.println("asdasaeee");
 	}
 	
 	public void probates() {

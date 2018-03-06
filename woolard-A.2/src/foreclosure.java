@@ -1,12 +1,12 @@
-
-
 import java.util.ArrayList;
 
 public class foreclosure {
 	public ArrayList<String> date, county, type, sale_date, pAddress, pCity, pState, value, loan, name, state;
-	private ArrayList<Integer> pZip, zip;
+	public ArrayList<Integer> pZip, zip;
 	private int len;
+	
 	public foreclosure() {
+		//addName(forclose);
 		
 	}
 	public String getDate(int row) {
@@ -85,8 +85,8 @@ public class foreclosure {
 		return name.get(row);
 	}
 
-	public void addName(String na) {
-		this.name.add(na);
+	public void addName(String n) {
+		this.name.add(n);
 	}
 
 	public String getState(int row) {
