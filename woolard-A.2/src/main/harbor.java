@@ -1,8 +1,11 @@
+package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+import resources.foreclosure;
 
 public class harbor extends masterfile{
 	//foreclosure forc = new foreclosure();
@@ -71,19 +74,45 @@ public class harbor extends masterfile{
 		
 	}
 	public masterfile masterBuilder() throws FileNotFoundException {
+		//1 list- property list with names
+		//2 list- list of properties with dif owner/property address
+		//  show owner address + name
+		
 		masterfile master = new masterfile();
 		PrintWriter pw = new PrintWriter(new File("masterfile.csv"));
 		StringBuilder list1 = new StringBuilder();
 		StringBuilder list2 = new StringBuilder();
-		
-		
+		/*
 		sb.delete(0, sb.length());
 		for (int i = 0; i <= forc.getCityLength()-1; i++) {
 			sb.append(forc.getCity(i) +"\n");
 		}
 		//System.out.println(sb);
-		//sb.append(forc.getAddress(1)+"\n");
-		pw.append(sb);
+		//sb.append(forc.getAddress(1)+"\n");*/
+		
+		list1.append("List One, \n");
+		for (int i=0; i < forc.getpAddressLength(); i++) {
+			//System.out.println(forc.getpAddress(i));
+			list1.append(forc.getpAddress(i)+",");
+			list1.append(forc.getName(i)+"\n");
+		}
+		
+		list2.append("List 2, \n");
+		for (int i=0; i < forc.getpAddressLength(); i++) {
+			System.out.print(forc.getpAddress(i));
+			System.out.println(forc.getAddress(i));
+			if (!forc.getpAddress(i).equals(forc.getAddress(i))) {
+				list2.append(forc.getpAddress(i)+",");
+				list2.append(forc.getAddress(i));
+				list2.append(forc.getName(i)+"\n");
+			}
+		}
+		
+		//System.out.println(list1);
+		
+		pw.append(list1+"\n");
+		pw.append(list2);
+		//pw.append("Adasdasd");
 		pw.close();
 		
 		return master;

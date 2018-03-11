@@ -1,3 +1,4 @@
+package resources;
 
 public class affidavit_of_heirship {
 

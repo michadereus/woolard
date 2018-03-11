@@ -1,3 +1,4 @@
+package resources;
 import java.util.ArrayList;
 
 public class foreclosure {
@@ -42,7 +43,7 @@ public class foreclosure {
 	}
 
 	public String getpAddress(int row) {
-		return pAddress.get(row);
+		return this.pAddress.get(row);
 	}
 
 	public void addpAddress(String a) {
@@ -132,8 +133,9 @@ public class foreclosure {
 	public String getCity(int row) {
 		return city.get(row);
 	}
-	public int getCityLength() {
-		return city.size();
+	public int getpAddressLength() {
+		return pAddress.size();
 	}
+	
 	
 }
