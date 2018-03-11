@@ -46,13 +46,26 @@ public class harbor extends masterfile{
 				forc.addpCity(t[5]);
 				forc.addpState(t[6]);
 				forc.addpZip(t[7]);
-				forc.addValue(t[8]+","+t[9]);
-				forc.addLoan(t[10]);
-				forc.addName(t[11]);				
-				forc.addAddress(t[12]);
-				forc.addCity(t[13]);
-				forc.addState(t[14]);
-				forc.addZip(t[15]);
+			//	System.out.println(t[8].length());
+				if (t[8].length() == 2) {
+					//System.out.println(t[10]);
+					forc.addValue(t[8]+","+t[9]+","+t[10]);
+					forc.addLoan(t[11]);
+					forc.addName(t[12]);				
+					forc.addAddress(t[13]);
+					forc.addCity(t[14]);
+					forc.addState(t[15]);
+					forc.addZip(t[16]);
+				}
+				else {
+					forc.addValue(t[8]+","+t[9]);
+					forc.addLoan(t[10]);
+					forc.addName(t[11]);				
+					forc.addAddress(t[12]);
+					forc.addCity(t[13]);
+					forc.addState(t[14]);
+					forc.addZip(t[15]);
+				}
 			}
 			scan.close();			
 		}catch(FileNotFoundException e1) 
@@ -74,36 +87,26 @@ public class harbor extends masterfile{
 		
 	}
 	public masterfile masterBuilder() throws FileNotFoundException {
-		//1 list- property list with names
-		//2 list- list of properties with dif owner/property address
-		//  show owner address + name
 		
 		masterfile master = new masterfile();
 		PrintWriter pw = new PrintWriter(new File("masterfile.csv"));
 		StringBuilder list1 = new StringBuilder();
 		StringBuilder list2 = new StringBuilder();
-		/*
-		sb.delete(0, sb.length());
-		for (int i = 0; i <= forc.getCityLength()-1; i++) {
-			sb.append(forc.getCity(i) +"\n");
-		}
-		//System.out.println(sb);
-		//sb.append(forc.getAddress(1)+"\n");*/
 		
-		list1.append("List One, \n");
+		list1.append("Property Address, Owner Addres, Name, File\nList One\n");
 		for (int i=0; i < forc.getpAddressLength(); i++) {
 			//System.out.println(forc.getpAddress(i));
-			list1.append(forc.getpAddress(i)+",");
+			list1.append(forc.getpAddress(i)+", ,");
 			list1.append(forc.getName(i)+"\n");
 		}
 		
 		list2.append("List 2, \n");
 		for (int i=0; i < forc.getpAddressLength(); i++) {
-			System.out.print(forc.getpAddress(i));
-			System.out.println(forc.getAddress(i));
+			//System.out.print(forc.getpAddress(i));
+			//System.out.println(forc.getAddress(i));
 			if (!forc.getpAddress(i).equals(forc.getAddress(i))) {
 				list2.append(forc.getpAddress(i)+",");
-				list2.append(forc.getAddress(i));
+				list2.append(forc.getAddress(i)+",");
 				list2.append(forc.getName(i)+"\n");
 			}
 		}
