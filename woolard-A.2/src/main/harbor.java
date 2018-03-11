@@ -46,7 +46,7 @@ public class harbor extends masterfile{
 				forc.addpCity(t[5]);
 				forc.addpState(t[6]);
 				forc.addpZip(t[7]);
-				//System.out.println(t[8].length());
+				  //System.out.println(t[8].length());
 				if (t[8].length() == 2) {
 					//System.out.println(t[10]);
 					forc.addValue(t[8]+","+t[9]+","+t[10]);
