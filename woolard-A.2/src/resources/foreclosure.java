@@ -121,9 +121,11 @@ public class foreclosure {
 	public void setLen(int len) {
 		this.len = name.size();
 	}
+	
 	public void addAddress(String string) {
 		this.address.add(string);
 	}
+	
 	public String getAddress(int row) {
 		return address.get(row);
 	}

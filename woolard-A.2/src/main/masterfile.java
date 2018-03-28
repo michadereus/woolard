@@ -2,17 +2,24 @@ package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-//1 list- property list with names
-//2 list- list of properties with diff owner/property address
-//	show owner address + name
-//
+
+import resources.foreclosure;
+
 
 @SuppressWarnings("unused")
-public class masterfile {
+public class masterfile{
+	
 	public static void main(String[] args) throws FileNotFoundException {
-		harbor harb = new harbor(1);
+		harbor harb = new harbor();
+		harb.readHeirship();
+		harb.readSubstitute();
 		harb.readForeclosure();
-		harb.masterBuilder();
+		harb.readProbates();
 	}
+	
+	public masterfile() {
+		
+	}
+	
 
 }
